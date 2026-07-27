@@ -57,38 +57,7 @@ function animate() {
     }
 }
 
-function celebrate() {
-    // Create confetti
-    for (let i = 0; i < 100; i++) {
-        confetti.push(new Confetti());
-    }
-    animate();
-    
-    // Bounce animation
-    const card = document.querySelector('.card');
-    card.style.animation = 'none';
-    setTimeout(() => {
-        card.style.animation = '';
-    }, 10);
-}
 
-// Music toggle
-let isPlaying = false;
-const audioElement = document.getElementById('birthday-music');
-
-function toggleMusic() {
-    const musicBtn = document.querySelector('.music-btn');
-    
-    if (isPlaying) {
-        audioElement.pause();
-        musicBtn.textContent = '🎵 Birthday Music';
-        isPlaying = false;
-    } else {
-        audioElement.play();
-        musicBtn.textContent = '⏸️ Pause Music';
-        isPlaying = true;
-    }
-}
 
 // Handle window resize
 window.addEventListener('resize', () => {
@@ -99,6 +68,10 @@ window.addEventListener('resize', () => {
 // Auto-celebrate on load for extra festive feel
 window.addEventListener('load', () => {
     setTimeout(() => {
-        celebrate();
+        // Create confetti
+        for (let i = 0; i < 100; i++) {
+            confetti.push(new Confetti());
+        }
+        animate();
     }, 500);
 });

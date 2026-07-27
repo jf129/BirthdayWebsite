@@ -172,6 +172,43 @@ body {
     }
 }
 
+/* Heart */
+.heart {
+    width: 100px;
+    height: 100px;
+    margin: 20px auto;
+    position: relative;
+    animation: heartBeat 1.2s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 160px;
+    background: #ff1744;
+    border-radius: 100px 100px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart::after {
+    left: 100px;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+@keyframes heartBeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+}
+
 /* Balloons */
 .balloons {
     position: fixed;
