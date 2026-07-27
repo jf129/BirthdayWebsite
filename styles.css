@@ -1,0 +1,295 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.8s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.greeting {
+    margin-bottom: 30px;
+}
+
+.title {
+    font-size: 3em;
+    color: #764ba2;
+    margin-bottom: 10px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.subtitle {
+    font-size: 1.5em;
+    color: #667eea;
+    font-style: italic;
+}
+
+.message {
+    margin: 30px 0;
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #333;
+}
+
+.message p {
+    margin: 10px 0;
+}
+
+.message .signature {
+    font-size: 1.3em;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* Cake Styles */
+.cake {
+    margin: 30px auto;
+    position: relative;
+    width: 150px;
+    height: 120px;
+    animation: cakeFloat 3s ease-in-out infinite;
+}
+
+@keyframes cakeFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.cake-body {
+    position: relative;
+    width: 100%;
+    height: 90px;
+}
+
+.cake-layer {
+    width: 150px;
+    height: 25px;
+    background: linear-gradient(45deg, #f4a460, #ff8c69);
+    border: 2px solid #d2691e;
+    margin: 5px 0;
+    border-radius: 3px;
+    position: relative;
+}
+
+.cake-layer::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    background: #ffb84d;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.candles {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.candle {
+    width: 8px;
+    height: 40px;
+    background: #ffd700;
+    border-radius: 4px;
+    position: relative;
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
+.flame {
+    width: 10px;
+    height: 15px;
+    background: linear-gradient(to top, #ff6b00, #ffaa00, #ffff00);
+    border-radius: 50% 50% 50% 0;
+    position: absolute;
+    top: -15px;
+    left: -1px;
+    animation: flicker 0.3s infinite;
+}
+
+@keyframes flicker {
+    0%, 100% {
+        transform: translateY(0) scaleY(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-3px) scaleY(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* Balloons */
+.balloons {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.balloon {
+    width: 50px;
+    height: 60px;
+    border-radius: 50% 50% 50% 0;
+    position: absolute;
+    opacity: 0.8;
+    animation: float 6s infinite ease-in;
+    bottom: -70px;
+}
+
+.balloon.red {
+    background: linear-gradient(135deg, #ff6b9d, #ff1744);
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.balloon.blue {
+    background: linear-gradient(135deg, #667eea, #066fff);
+    left: 25%;
+    animation-delay: 1s;
+}
+
+.balloon.yellow {
+    background: linear-gradient(135deg, #ffd700, #ffed4e);
+    left: 50%;
+    animation-delay: 2s;
+}
+
+.balloon.purple {
+    background: linear-gradient(135deg, #a78bfa, #7c3aed);
+    left: 70%;
+    animation-delay: 0.5s;
+}
+
+.balloon.pink {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+    left: 85%;
+    animation-delay: 1.5s;
+}
+
+.balloon::before {
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 100px;
+    background: rgba(0, 0, 0, 0.1);
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+}
+
+@keyframes float {
+    0% {
+        bottom: -100px;
+        transform: translateX(0) rotate(0deg);
+    }
+    100% {
+        bottom: 100vh;
+        transform: translateX(100px) rotate(360deg);
+    }
+}
+
+/* Buttons */
+.button {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.button:active {
+    transform: translateY(-1px);
+}
+
+/* Confetti */
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+@media (max-width: 600px) {
+    .card {
+        padding: 20px;
+        margin: 20px;
+    }
+
+    .title {
+        font-size: 2em;
+    }
+
+    .subtitle {
+        font-size: 1.2em;
+    }
+
+    .message {
+        font-size: 0.95em;
+    }
+}
